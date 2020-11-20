@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+<script>
+var N=20;
+var R=90;
+var X=250;
+function draw() {
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+for(var i=0; i<N; i++) {
+var colorR=Math.floor(255*Math.random());
+var colorG=Math.floor(255*Math.random());
+var colorB=Math.floor(255*Math.random());
+ctx.beginPath();
+ctx.arc(X,250,R,0,Math.PI*2,true);
+ctx.closePath();
+ctx.strokeStyle='rgb('+colorR+','+colorG+','+colorB+')';
+ctx.fillStyle=ctx.strokeStyle;
+ctx.lineWidth=1;
+ctx.stroke();
+ctx.fill();
+R=R-5;
+X=X+5;};
+};
+</script>
+</head> 
+<body onload="draw()">
+<canvas id = "canvas" width = "1000" height = "1000">
+</canvas>
+</body>
+</html>
