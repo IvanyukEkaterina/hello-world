@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+<script>
+var canvas;
+var ctx;
+function init() {
+canvas=document.getElementById('canvas');
+ctx=canvas.getContext('2d');
+document.addEventListener("mousedown", putRect);
+document.addEventListener("keydown", move);
+ctx.fillStyle='red';
+ctx.strokeRect(0,0,400,200);}
+function putRect(event) {
+x=event.offsetX;
+y=event.offsetY;
+ctx.fillRect(x,y,20,20);}
+function move(event) {
+if (event.keyCode == 97) {ctx.fillStyle='yellow';}
+if (event.keyCode == 98) {ctx.fillStyle='blue';}
+if (event.keyCode == 99) {ctx.fillStyle='red';}}
+</script>
+</head> 
+<body onload="init();">
+<canvas id="canvas" width="400" height="200"></canvas>
+</body>
+</html>
