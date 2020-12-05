@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+<script>
+var canvas;
+var ctx;
+function draw() {
+var s=document.getElementById("sq").value;
+var x=s;
+x = Number(x);
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+ctx.fillStyle=document.getElementById("p").value;
+ctx.fillRect(0,0,300,100);
+ctx.fillStyle=document.getElementById("l").value;
+ctx.fillRect(0,0,x,100);
+ctx.fillStyle=document.getElementById("p").value;
+document.addEventListener("keydown", move);
+document.getElementById("sq").value=x;}
+function move(event) {
+if (event.keyCode == 39) {
+var s=document.getElementById("sq").value;
+var x=s;
+x = Number(x);
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+ctx.clearRect(0,0,x,100);
+x=x+1;
+document.getElementById("sq").value=x;
+ctx.fillStyle=document.getElementById("l").value;
+ctx.fillRect(0,0,x,100);
+}
+if (event.keyCode == 37) {
+var s=document.getElementById("sq").value;
+var x=s;
+x = Number(x);
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+ctx.clearRect(0,0,x,100);
+ctx.fillStyle=document.getElementById("p").value;
+ctx.fillRect(0,0,x,100);
+x=x-1;
+document.getElementById("sq").value=x;
+ctx.fillStyle=document.getElementById("l").value;
+ctx.fillRect(0,0,x,100);
+}}
+</script>
+</head>
+<body onchange="draw()">
+Позиция шторки: <input type="number" id="sq"><br><br>
+Цвет левой половины: <input type="color" id="l"><br><br>
+Цвет правой половины: <input type="color" id="p"><br><br>
+<canvas id ="canvas" width ="300" height="300">
+</canvas>
+</body>
+</html>
